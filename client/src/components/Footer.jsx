@@ -6,7 +6,7 @@ const Footer = () => {
       {/* Social Icons FontAwesome CDN */}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-      {/* Main Grid Section - Matches the 6-gap and structure of your Hero */}
+   
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
         
         {/* Brand Column */}
@@ -98,7 +98,6 @@ const Footer = () => {
 
       <hr className="border-gray-100 mb-6" />
 
-      {/* Bottom Copyright Section */}
       <div className="flex flex-col md:flex-row justify-between items-center text-[12px] text-gray-400 gap-4">
         <div className="text-center md:text-left">
           Copyright © <span className="font-medium">ADML TECHNOSERVICES PRIVATE LIMITED.</span> All Rights Reserved.

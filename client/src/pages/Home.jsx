@@ -4,6 +4,9 @@ import Hero from "../components/Hero";
 import ServiceSection from "../components/ServicesSection";
 import Footer from "../components/Footer";
 import ImpactSection from "../components/ImpactSection";
+import QuickBooking from "../components/QuickBooking";
+import PestSolutionsSection from "../components/PestSolutionsSection";
+import FAQSection from "../components/FAQSection";
 
 const Home = ({ cart, setCart }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -23,6 +26,9 @@ const Home = ({ cart, setCart }) => {
         />
       )}
       <ImpactSection/>
+      <QuickBooking/>
+      <PestSolutionsSection/>
+      <FAQSection/>
       <Footer/>
     </>
   );

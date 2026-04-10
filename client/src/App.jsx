@@ -10,7 +10,7 @@ import Cart from "./pages/Cart";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const [cart, setCart] = useState([]); //  global cart
+  const [cart, setCart] = useState([]);
 
   return (
     <BrowserRouter>
