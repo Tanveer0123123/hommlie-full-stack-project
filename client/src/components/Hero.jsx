@@ -1,29 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "../api";
 
-const categories = [
-  { name: "Bedbugs Control", id: 1 },
-  { name: "Cockroach Control", id: 2 },
-  { name: "Termite Control", id: 1 }
-];
+const Hero = ({ onSelectProduct }) => {
+  const [products, setProducts] = useState([]);
 
-const Hero = ({ onSelectCategory }) => {
+  useEffect(() => {
+    api.get("/products")
+      .then(res => setProducts(res.data))
+      .catch(err => console.log(err));
+  }, []);
+
   return (
     <div className="flex p-6 gap-6">
 
       {/* LEFT */}
       <div className="w-1/2">
         <h2 className="text-2xl font-bold mb-4">
-          What pest problem are you facing?
+          What service are you looking for?
         </h2>
 
         <div className="grid grid-cols-3 gap-4">
-          {categories.map((c, index) => (
+          {products.map((p) => (
             <div 
-              key={index}
-              onClick={() => onSelectCategory(c.id)}
+              key={p.id}
+              onClick={() => onSelectProduct(p)}
               className="border p-4 rounded cursor-pointer hover:bg-gray-100 text-center"
             >
-              {c.name}
+              {p.name}
             </div>
           ))}
         </div>
