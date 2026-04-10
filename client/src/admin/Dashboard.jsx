@@ -46,7 +46,7 @@ const Dashboard = () => {
 
       </div>
 
-      {/* 🔥 RECENT ORDERS TABLE */}
+
       <div className="bg-white p-4 rounded shadow">
 
         <h3 className="text-lg font-semibold mb-4">Recent Orders</h3>

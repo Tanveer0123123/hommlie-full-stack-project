@@ -56,7 +56,15 @@ router.get("/stats", (req, res) => {
 
         stats.products = prodRes[0].total;
 
-        res.json(stats);
+        db.query("SELECT COUNT(*) as total FROM users", (err, userRes) => {
+          if (err) return res.status(500).json(err);
+
+          stats.users = userRes[0].total;
+
+          
+          res.json(stats);
+        });
+
       });
     });
   });

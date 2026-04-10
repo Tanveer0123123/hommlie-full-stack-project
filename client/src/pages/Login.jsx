@@ -6,6 +6,8 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [type, setType] = useState("user"); 
+
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -15,12 +17,19 @@ const Login = () => {
         password
       });
 
-      // 🔥 SAVE TOKEN
-      localStorage.setItem("token", res.data.token);
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+      const user = res.data.user;
 
-      // 🔥 ROLE BASED REDIRECT
-      if (res.data.user.role === "admin") {
+     
+      if (user.role !== type) {
+        alert(`You are not a ${type}`);
+        return;
+      }
+
+   
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      if (user.role === "admin") {
         navigate("/admin");
       } else {
         navigate("/");
@@ -28,7 +37,6 @@ const Login = () => {
 
     } catch (err) {
       alert("Login failed");
-      console.log(err);
     }
   };
 
@@ -40,6 +48,22 @@ const Login = () => {
         <h2 className="text-2xl font-bold mb-4 text-center">
           Login
         </h2>
+
+        <div className="flex mb-4">
+          <button
+            onClick={() => setType("user")}
+            className={`w-1/2 py-1 ${type === "user" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+          >
+            User
+          </button>
+
+          <button
+            onClick={() => setType("admin")}
+            className={`w-1/2 py-1 ${type === "admin" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+          >
+            Admin
+          </button>
+        </div>
 
         <input
           type="email"
@@ -63,6 +87,16 @@ const Login = () => {
         >
           Login
         </button>
+
+        <p className="mt-3 text-sm text-center">
+          Don't have an account?
+          <span 
+            onClick={() => navigate("/register")} 
+            className="text-blue-500 cursor-pointer ml-1"
+          >
+            Register
+          </span>
+        </p>
 
       </div>
 

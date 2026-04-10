@@ -10,22 +10,7 @@ const {
 router.get("/", getProducts);
 router.post("/", createProduct);
 
-// router.get("/", (req, res) => {
-//   const { category_id } = req.query;
 
-//   let sql = "SELECT * FROM products";
-
-//   if (category_id) {
-//     sql += ` WHERE category_id = ${category_id}`;
-//   }
-
-//   db.query(sql, (err, result) => {
-//     if (err) return res.status(500).json(err);
-//     res.json(result);
-//   });
-// });
-
-// DELETE PRODUCT
 router.delete("/:id", (req, res) => {
   const id = req.params.id;
 
