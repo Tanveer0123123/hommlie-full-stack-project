@@ -15,14 +15,6 @@ const Products = () => {
     api.get("/products").then(res => setProducts(res.data));
   };
 
-  // const addProduct = () => {
-  //   api.post("/products", { name, price })
-  //     .then(() => {
-  //       fetchProducts();
-  //       setName("");
-  //       setPrice("");
-  //     });
-  // };
 
   const addProduct = async () => {
     try {
@@ -38,10 +30,6 @@ const Products = () => {
       console.log(err);
     }
   };
-
-  // const deleteProduct = (id) => {
-  //   api.delete(`/products/${id}`).then(fetchProducts);
-  // };
 
   const deleteProduct = async (id) => {
   if (window.confirm("Delete this product?")) {
